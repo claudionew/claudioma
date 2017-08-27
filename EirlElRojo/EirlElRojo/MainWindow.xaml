@@ -16,8 +16,8 @@
                     <Label>Destino</Label>
                     <ComboBox x:Name="Destino"></ComboBox>
                     <DatePicker x:Name="DiaViaje"></DatePicker>
-                    <Button>Buscar</Button>
-                    <ListView></ListView>
+                    <Button Click="Button_Click">Buscar</Button>
+                    <ListView x:Name="LvResultados" Height="104"></ListView>
                         <Grid Background="#FFE5E5E5"/>
                 </StackPanel>
             </TabItem>

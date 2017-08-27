@@ -83,5 +83,21 @@ namespace EirlElRojo
             this.Destino.SelectedItem = Reserva.Destino;
             this.DiaViaje.SelectedDate = Reserva.Fecha;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BuscarViaje(Reserva);
+        }
+
+        public void BuscarViaje( Reserva reserva)
+        {
+            var qry = from q in Rutas
+                      where q.Estaciones.Contains(reserva.Destino) &&
+                      q.Estaciones.Contains(reserva.Salida) &&
+                      q.FechaInicio >= reserva.Fecha
+                      select q;
+            Resultados = qry.ToList();
+            LvResultados.ItemsSource = Resultados;
+        }
     }
 }
